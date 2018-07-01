@@ -17,6 +17,10 @@
     <!-- Custom styles for this template -->
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 </head>
 
@@ -32,7 +36,7 @@
   <li style="float:right"><a href="/" style="display: block; color: #999999;text-align: center;padding: 14px 16px;"><i class="fa fa-angle-double-left"></i> Volver</a></li>
   </ul>
 
-  <div style="position:fixed; right:15px; bottom:15px;"><a class ="ingreso" href="{{url('/logout')}}" data-toggle="tooltip" title="Salir"><i class="fa fa-sign-out fa-2x"></i><a></div>
+  <div style="position:fixed; right:15px; bottom:15px; z-index:5"><a class ="ingreso" href="{{url('/logout')}}" data-toggle="tooltip" title="Salir"><i class="fa fa-sign-out fa-2x"></i><a></div>
 
     <div id="wrapper">
 
@@ -79,10 +83,6 @@
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

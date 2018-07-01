@@ -7,28 +7,44 @@
   <h2>Administración de Mensajes</<h2><br><br>
     <h5><i class="fa fa-wrench"style="margin-right:8px"></i>Lista de mensajes.</h5><br>
 
+    <script type= "text/javascript" src="{{ URL::asset('js/tab_divider.js') }}"></script>
     <table class="table table-hover">
       <thead>
-        <tr>
-          <th></th>
-          <th scope="col">Remitente</th>
-          <th scope="col">Email</th>
-          <th scope="col">Mensaje</th>
-          <th scope="col">Fecha</th>
+        <tr class="table-secondary">
+          <th width="2%"></th>
+          <th scope="col" width="13%">Remitente</th>
+          <th scope="col" width="13%">Email</th>
+          <th scope="col" width="57%">Mensaje</th>
+          <th scope="col" width="15%">Fecha</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="listaMensajes">
         @foreach($mensajes as $m)
-          <tr>
-            <th scope="col"><i class="fa fa-envelope"></i></th>
-            <th scope="col">{{$m->nombre}}</th>
-            <th scope="col">{{$m->email}}</th>
-            <th scope="col">@if(strlen($m->mensaje)>80) {{substr($m->mensaje,0,80)."..."}} @else {{substr($m->mensaje,0,80)}} @endif</th>
-            <th scope="col">{{$m->fecha}}</th>
-          </tr>
+          @if($m->leido=="true")
+            <tr class='clickable-row' data-href='admin/mensajes/{{$m->id}}' style="cursor:pointer;">
+              <td scope="col" ><i class="fa fa-envelope-open"></i></td>
+              <td scope="col" >{{$m->nombre}}</td>
+              <td scope="col" >{{$m->email}}</td>
+              <td scope="col" >@if(strlen($m->mensaje)>60) {{substr($m->mensaje,0,60)."..."}} @else {{substr($m->mensaje,0,60)}} @endif</td>
+              <td scope="col" >{{substr($m->fecha,0,16)}}</td>
+            </tr>
+          @else
+            <tr class='clickable-row' data-href='/admin/mensajes/{{$m->id}}' style="cursor:pointer">
+              <td scope="col" style="font-weight: 700"><i class="fa fa-envelope"></i></td>
+              <td scope="col" style="font-weight: 700">{{$m->nombre}}</td>
+              <td scope="col" style="font-weight: 700">{{$m->email}}</td>
+              <td scope="col" style="font-weight: 700">@if(strlen($m->mensaje)>60) {{substr($m->mensaje,0,60)."..."}} @else {{substr($m->mensaje,0,60)}} @endif</td>
+              <td scope="col" style="font-weight: 700">{{substr($m->fecha,0,16)}}</td>
+            </tr>
+          @endif
         @endforeach
       </tbody>
     </table>
+
+    @if (count($mensajes)>10)
+       <ul class="pagination pagination-sm" id="myPager" style="float:right"></ul>
+       <script>$('#listaMensajes').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:10});</script>
+    @endif
 
     <br><br>
     <h5><i class="fa fa-wrench"style="margin-right:8px"></i>Administrar textos de descripción de mensajes.</h5><br>

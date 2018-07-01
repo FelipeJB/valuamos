@@ -10,13 +10,23 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Type</th>
-          <th scope="col">Column heading</th>
-          <th scope="col">Column heading</th>
-          <th scope="col">Column heading</th>
+          <th></th>
+          <th scope="col">Remitente</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mensaje</th>
+          <th scope="col">Fecha</th>
         </tr>
       </thead>
       <tbody>
+        @foreach($mensajes as $m)
+          <tr>
+            <th scope="col"><i class="fa fa-envelope"></i></th>
+            <th scope="col">{{$m->nombre}}</th>
+            <th scope="col">{{$m->email}}</th>
+            <th scope="col">@if(strlen($m->mensaje)>80) {{substr($m->mensaje,0,80)."..."}} @else {{substr($m->mensaje,0,80)}} @endif</th>
+            <th scope="col">{{$m->fecha}}</th>
+          </tr>
+        @endforeach
       </tbody>
     </table>
 

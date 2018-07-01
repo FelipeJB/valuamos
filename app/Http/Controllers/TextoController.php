@@ -91,4 +91,24 @@ class TextoController extends Controller
       }
   }
 
+  /**
+   * Show the form for editing a resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function editMensajes()
+  {
+      if (Auth::check()){
+          if (Input::get('TextoMensajesEs')!=null && Input::get('TextoMensajesEn')!=null){
+                  $textos= \App\Textos::all();
+                  $t=$textos[0];
+                  $t->contactoEs=Input::get('TextoMensajesEs');
+                  $t->contactoEn=Input::get('TextoMensajesEn');
+                  $t->save();
+                  return Redirect::to('/admin/mensajes')->with("SuccessTextoMensajes", "Se actualizaron los textos de contacto");
+          }
+          return Redirect::to('/admin/mensajes')->with("ErrorTextoMensajes", "Por favor ingrese todos los campos");
+      }
+  }
+
 }

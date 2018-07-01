@@ -49,7 +49,7 @@ Route::get('/admin/experiencia', function () {
 
 Route::get('/admin/mensajes', function () {
     $textos= \App\Textos::all();
-    $mensajes= \App\Mensaje::all();
+    $mensajes= \App\Mensaje::orderBy('id', 'desc')->get();
     return view('adminMensajes', compact('textos','mensajes'));
 })->middleware('auth');
 
@@ -62,6 +62,8 @@ Route::post('editTextoServicios', 'TextoController@editServicios');
 Route::post('editTextoEquipo', 'TextoController@editEquipo');
 
 Route::post('editTextoExperiencia', 'TextoController@editExperiencia');
+
+Route::post('editTextoMensajes', 'TextoController@editMensajes');
 
 Route::post('passwordUpdate', 'Controller@updatePassword');
 

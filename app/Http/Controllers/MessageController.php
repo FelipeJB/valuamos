@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AnswerMail;
+use App\Mail\NotificationMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Input;
 use Exception;
 use Illuminate\Database\QueryException;
 use App\Mensaje;
+use App\User;
 use Request;
 use Auth;
 use Redirect;
@@ -36,6 +38,9 @@ class MessageController extends Controller
                 $m->fecha= Carbon::now()->toDateTimeString();
 
                 $m->save();
+
+                // send mail
+                Mail::to(User::all()[0]->email)->send(new NotificationMail($m->nombre,$m->mensaje));
 
                 if(Request::session()->has('languaje')){
                   return Redirect::to('/#contact')->with("SuccesMessage", "The message was sent");

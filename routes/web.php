@@ -54,8 +54,15 @@ Route::get('/admin/mensajes', function () {
 })->middleware('auth');
 
 Route::get('/admin/mensajes/{id}', function ($id) {
-    $mensaje= \App\Mensaje::where('id', '=', $id)->get()[0];
-    return view('mensaje', compact('mensaje'));
+    $mensaje= \App\Mensaje::where('id', '=', $id)->get();
+    if (count($mensaje)!=0){
+      $mensaje[0]->leido="true";
+      $mensaje[0]->save();
+      return view('mensaje', compact('mensaje'));
+    }
+    else{
+      return view('adminHome');
+    }
 })->middleware('auth');
 
 Route::get('/admin/correo', function () {
@@ -93,6 +100,8 @@ Route::post('deleteExperiencia', 'ExperienciaController@delete');
 Route::post('addExperiencia', 'ExperienciaController@create');
 
 Route::post('editExperiencia', 'ExperienciaController@edit');
+
+Route::post('deleteMensaje', 'MessageController@delete');
 
 Route::get('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@login']);

@@ -7,6 +7,19 @@
   <h2>Administración de Mensajes</h2><br>
     <h5><i class="fa fa-list"style="margin-right:8px"></i>Lista de mensajes.</h5><br>
 
+    @if(Session::has('SuccessMessageAction'))
+        <div class="alert alert-dismissible alert-success" style="width:380px">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Hecho! </strong> {!! Session::get('SuccessMessageAction') !!}
+        </div>
+    @endif
+    @if(Session::has('ErrorMessageAction'))
+        <div class="alert alert-dismissible alert-danger" style="width:380px">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Error! </strong> {!! Session::get('ErrorMessageAction') !!}
+        </div>
+    @endif
+
     <script type= "text/javascript" src="{{ URL::asset('js/tab_divider.js') }}"></script>
     <table class="table table-hover">
       <thead>

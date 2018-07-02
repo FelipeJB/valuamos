@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Database\QueryException;
 use App\Mensaje;
 use Request;
+use Auth;
 use Redirect;
 use Carbon\Carbon;
 
@@ -68,8 +69,18 @@ class MessageController extends Controller
     }
   }
 
-
-  
-
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function delete()
+  {
+      if (Auth::check()) {
+        $mensaje=Mensaje::where('id','=',Input::get('idMensaje'))->get()[0];
+        $mensaje->delete();
+        return Redirect::to('/admin/mensajes')->with("SuccessMessageAction", "Mensaje eliminado");;
+      }
+  }
 
 }

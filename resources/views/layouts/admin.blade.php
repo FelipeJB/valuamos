@@ -64,7 +64,7 @@
                     <a href="/admin/mensajes">Mensajes</a>
                 </li>
                 <li>
-                    <a href="#">Correo</a>
+                    <a href="/admin/correo">Correo</a>
                 </li>
             </ul>
         </div>

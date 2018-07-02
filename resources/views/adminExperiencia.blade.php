@@ -3,8 +3,8 @@
 @section('titulo', 'Experiencia')
 
 @section('content')
-<div class= "jumbotron">
-  <h2>Administración de Experiencia</<h2><br><br>
+<div class= "jumbotron" style="padding-top:40px; padding-bottom:40px">
+  <h2>Administración de Experiencia</h2><br>
 
 <h5><i class="fa fa-wrench"style="margin-right:8px"></i>Administrar Experiencia.</h5><br>
 @if(Session::has('SuccessExperiencia'))

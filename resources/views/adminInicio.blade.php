@@ -3,8 +3,8 @@
 @section('titulo', 'Inicio')
 
 @section('content')
-<div class= "jumbotron">
-  <h2>Administración del Inicio</<h2><br><br>
+<div class= "jumbotron" style="padding-top:40px; padding-bottom:40px">
+  <h2>Administración del Inicio</h2><br>
   <h5><i class="fa fa-wrench"style="margin-right:8px"></i>Administrar textos de inicio ubicados bajo el nombre de la empresa.</h5><br>
   @if(Session::has('SuccessTextoInicio'))
       <div class="alert alert-dismissible alert-success" style="width:380px">

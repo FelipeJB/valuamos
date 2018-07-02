@@ -3,9 +3,9 @@
 @section('titulo', 'Mensajes')
 
 @section('content')
-<div class= "jumbotron">
-  <h2>Administración de Mensajes</<h2><br><br>
-    <h5><i class="fa fa-wrench"style="margin-right:8px"></i>Lista de mensajes.</h5><br>
+<div class= "jumbotron" style="padding-top:40px; padding-bottom:40px">
+  <h2>Administración de Mensajes</h2><br>
+    <h5><i class="fa fa-list"style="margin-right:8px"></i>Lista de mensajes.</h5><br>
 
     <script type= "text/javascript" src="{{ URL::asset('js/tab_divider.js') }}"></script>
     <table class="table table-hover">
@@ -13,15 +13,15 @@
         <tr class="table-secondary">
           <th width="2%"></th>
           <th scope="col" width="13%">Remitente</th>
-          <th scope="col" width="13%">Email</th>
-          <th scope="col" width="57%">Mensaje</th>
+          <th scope="col" width="15%">Email</th>
+          <th scope="col" width="55%">Mensaje</th>
           <th scope="col" width="15%">Fecha</th>
         </tr>
       </thead>
       <tbody id="listaMensajes">
         @foreach($mensajes as $m)
           @if($m->leido=="true")
-            <tr class='clickable-row' data-href='admin/mensajes/{{$m->id}}' style="cursor:pointer;">
+            <tr class='clickable-row' data-href='/admin/mensajes/{{$m->id}}' style="cursor:pointer;">
               <td scope="col" ><i class="fa fa-envelope-open"></i></td>
               <td scope="col" >{{$m->nombre}}</td>
               <td scope="col" >{{$m->email}}</td>

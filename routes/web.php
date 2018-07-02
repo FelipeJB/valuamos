@@ -53,6 +53,15 @@ Route::get('/admin/mensajes', function () {
     return view('adminMensajes', compact('textos','mensajes'));
 })->middleware('auth');
 
+Route::get('/admin/mensajes/{id}', function ($id) {
+    $mensaje= \App\Mensaje::where('id', '=', $id)->get()[0];
+    return view('mensaje', compact('mensaje'));
+})->middleware('auth');
+
+Route::get('/admin/correo', function () {
+    return view('adminCorreo');
+})->middleware('auth');
+
 Route::post('sendMessage', 'MessageController@create');
 
 Route::post('editTextoInicio', 'TextoController@editInicio');

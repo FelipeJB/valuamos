@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AnswerMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Input;
 use Exception;
 use Illuminate\Database\QueryException;
@@ -79,7 +81,25 @@ class MessageController extends Controller
       if (Auth::check()) {
         $mensaje=Mensaje::where('id','=',Input::get('idMensaje'))->get()[0];
         $mensaje->delete();
-        return Redirect::to('/admin/mensajes')->with("SuccessMessageAction", "Mensaje eliminado");;
+        return Redirect::to('/admin/mensajes')->with("SuccessMessageAction", "Mensaje eliminado");
+      }
+  }
+
+  /**
+   * Answer the message.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function answer()
+  {
+      if (Auth::check()) {
+        if (Input::get('AsuntoMensaje')!=null && Input::get('AsuntoMensaje')!="" && Input::get('Mensaje')!=null && Input::get('Mensaje')!=""){
+
+        // send mail
+        Mail::to(Input::get('RemitenteMensaje'))->send(new AnswerMail(Input::get('AsuntoMensaje'),Input::get('Mensaje')));
+        return Redirect::to('/admin/mensajes')->with("SuccessMessageAction", "Respuesta enviada");
+        }
+        return Redirect::to('/admin/mensajes')->with("ErrorMessageAction", "Por favor ingrese todos los campos para responder un mensaje");
       }
   }
 

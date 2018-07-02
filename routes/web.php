@@ -103,6 +103,8 @@ Route::post('editExperiencia', 'ExperienciaController@edit');
 
 Route::post('deleteMensaje', 'MessageController@delete');
 
+Route::post('responderMensaje', 'MessageController@answer');
+
 Route::get('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('logout', 'Auth\LoginController@logout');

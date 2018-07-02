@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Valuamos S.A.S</title>
+    <title>Valuamos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -99,7 +99,7 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading text-uppercase">Valuamos S.A.S.</div>
+          <div class="intro-heading text-uppercase">Valuamos</div>
 
           @if(Request::session()->has('languaje'))
             <h4 class="section-subheading">{{$textos[0]->inicioEn}}</h4><br>

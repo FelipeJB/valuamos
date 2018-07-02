@@ -274,3 +274,11 @@ function editarTextoMensajes(){
 function cancelarMensajes(){
     $('.formEditTxtMensajes').hide(300);
 }
+
+function responderMensaje(){
+    $('.formResponderMensaje').show(300);
+}
+
+function cancelarMensaje(){
+    $('.formResponderMensaje').hide(300);
+}

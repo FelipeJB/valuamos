@@ -61,6 +61,9 @@
                     <a href="/admin/experiencia">Experiencia</a>
                 </li>
                 <li>
+                    <a href="/admin/footer">Pie de Página</a>
+                </li>
+                <li>
                     <a href="/admin/mensajes">Mensajes</a>
                 </li>
                 <li>

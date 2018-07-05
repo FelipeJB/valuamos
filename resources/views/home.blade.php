@@ -441,32 +441,42 @@
       <div class="container">
         <div class="row align-items-center">
 
-          <div class="col-md-6">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <p style="color:white; margin-bottom:0px"><i class="fa fa-phone" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->telefono}}@endif</p>
-              </li>
-              &nbsp &nbsp
-              <li class="list-inline-item">
-                <p style="color:white; margin-bottom:0px"><i class="fa fa-map-marker" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->direccion}}@endif</p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-md-6">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+          @if(count($vinculos)>0)
+            <div class="col-md-6">
+              <ul class="list-inline quicklinks">
+                <li class="list-inline-item">
+                  <p style="color:white; margin-bottom:0px"><i class="fa fa-phone" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->telefono}}@endif</p>
+                </li>
+                &nbsp &nbsp
+                <li class="list-inline-item">
+                  <p style="color:white; margin-bottom:0px"><i class="fa fa-map-marker" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->direccion}}@endif</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-inline social-buttons">
+                @foreach($vinculos as $v)
+                <li class="list-inline-item">
+                  <a href="{{$v->vinculo}}" target="_blank" data-toggle="tooltip" title="{{$v->nombre}}">
+                    <i class="fa {{$v->icono}}"></i>
+                  </a>
+                </li>
+                @endforeach
+              </ul>
+            </div>
+          @else
+            <div class="col-md-12">
+              <ul class="list-inline quicklinks">
+                <li class="list-inline-item">
+                  <p style="color:white; margin-bottom:0px"><i class="fa fa-phone" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->telefono}}@endif</p>
+                </li>
+                &nbsp &nbsp
+                <li class="list-inline-item">
+                  <p style="color:white; margin-bottom:0px"><i class="fa fa-map-marker" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->direccion}}@endif</p>
+                </li>
+              </ul>
+            </div>
+          @endif
 
         </div>
       </div>

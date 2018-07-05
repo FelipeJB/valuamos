@@ -54,7 +54,7 @@
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <input type="password" class="form-control mb-1" name="ca"  placeholder="Contraseña Actual" style="width:300px">
             <input type="password" class="form-control mb-1" name="cn"  placeholder="Contraseña Nueva" style="width:300px">
-            <input type="password" class="form-control mb-1" name="ccn" placeholder="Contraseña Contraseña Nueva" style="width:300px">
+            <input type="password" class="form-control mb-1" name="ccn" placeholder="Confirmar Contraseña Nueva" style="width:300px">
         </div>
         <button type="submit" class="btn btn-default">Actualizar</button>
         <a onclick="cancelarInicio()" class="btn btn-default">Cancelar</a>

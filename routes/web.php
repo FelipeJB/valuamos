@@ -7,7 +7,8 @@ Route::get('/', function () {
   $empleados= \App\Empleado::all();
   $experiencias= \App\Experiencia::all();
   $datos= \App\datosContacto::all();
-    return view('home', compact('servicios','textos','empleados','experiencias','datos'));
+  $vinculos= \App\vinculos::all();
+    return view('home', compact('servicios','textos','empleados','experiencias','datos','vinculos'));
 });
 
 Route::get('en', 'LanguageController@english');
@@ -68,6 +69,12 @@ Route::get('/admin/mensajes/{id}', function ($id) {
 
 Route::get('/admin/correo', function () {
     return view('adminCorreo');
+})->middleware('auth');
+
+Route::get('/admin/footer', function () {
+    $datos= \App\datosContacto::all();
+    $vinculos= \App\vinculos::all();
+    return view('adminFooter', compact('datos','vinculos'));
 })->middleware('auth');
 
 Route::post('sendMessage', 'MessageController@create');

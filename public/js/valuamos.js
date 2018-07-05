@@ -282,3 +282,78 @@ function responderMensaje(){
 function cancelarMensaje(){
     $('.formResponderMensaje').hide(300);
 }
+
+//Footer
+
+function editarDatos(){
+    $('.formAddVinculo').hide(300);
+    $('.formEditVinculo').hide(300);
+    $('.formDeleteVinculo').hide(300);
+    $('.formEditDatos').show(300);
+}
+
+function agregarVinculo(){
+    $('.formEditDatos').hide(300);
+    $('.formEditVinculo').hide(300);
+    $('.formDeleteVinculo').hide(300);
+    $('.formAddVinculo').show(300);
+}
+
+function editarVinculo(vinculos){
+    //Cargar vinculos
+    if($('#SelEditVinculo').children('option').length==0){
+      for(var i = 0; i<vinculos.length; ++i){
+        $('#SelEditVinculo').append('<option value="'+ vinculos[i].id +'">'+ vinculos[i].nombre +'</option>');
+      }
+      if(vinculos.length>0){
+      //LLenar datos del vínculo
+      $('#NombreEditVinculo').val(vinculos[0].nombre);
+      $('#VinculoEditVinculo').val(vinculos[0].vinculo);
+      $('#IconoEditVinculo').val(vinculos[0].icono);
+      }
+    }
+    $('.formEditDatos').hide(300);
+    $('.formAddVinculo').hide(300);
+    $('.formDeleteVinculo').hide(300);
+    $('.formEditVinculo').show(300);
+}
+
+function llenarEditVinculo(vinculos){
+    //Vaciar campos
+    $('#NombreEditVinculo').empty();
+    $('#VinculoEditVinculo').empty();
+
+    //Buscar vínculo
+    var vinculo;
+    for(var i = 0; i<vinculos.length; ++i){
+      if(vinculos[i].id==$('#SelEditVinculo').find(":selected").val()){
+        vinculo=vinculos[i];
+      }
+    }
+
+    //Llenar campos
+    $('#NombreEditVinculo').val(vinculo.nombre);
+    $('#VinculoEditVinculo').val(vinculo.vinculo);
+    $('#IconoEditVinculo').val(vinculo.icono);
+
+}
+
+function eliminarVinculo(vinculos){
+    //Cargar vinculos
+    if($('#SelDeleteVinculo').children('option').length==0){
+      for(var i = 0; i<vinculos.length; ++i){
+        $('#SelDeleteVinculo').append('<option value="'+ vinculos[i].id +'">'+ vinculos[i].nombre +'</option>');
+      }
+    }
+    $('.formEditDatos').hide(300);
+    $('.formAddVinculo').hide(300);
+    $('.formEditVinculo').hide(300);
+    $('.formDeleteVinculo').show(300);
+}
+
+function cancelarFooter(){
+    $('.formEditDatos').hide(300);
+    $('.formAddVinculo').hide(300);
+    $('.formEditVinculo').hide(300);
+    $('.formDeleteVinculo').hide(300);
+}

@@ -6,7 +6,7 @@
 <div class= "jumbotron" style="padding-top:40px; padding-bottom:40px">
   <h2>Administración de Experiencia</h2><br>
 
-<h5><i class="fa fa-wrench"style="margin-right:8px"></i>Administrar Experiencia.</h5><br>
+<h5><i class="fa fa-wrench"style="margin-right:8px"></i>Administrar elementos de experiencia.</h5><br>
 @if(Session::has('SuccessExperiencia'))
     <div class="alert alert-dismissible alert-success" style="width:380px">
       <button type="button" class="close" data-dismiss="alert">&times;</button>

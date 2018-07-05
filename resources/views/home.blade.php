@@ -307,9 +307,9 @@
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             @if(Request::session()->has('languaje'))
-              <p class="large text-muted">{{$textos[0]->equipoEn}}</p>
+              <h3 class="large text-muted section-subheading">{{$textos[0]->equipoEn}}</h3>
             @else
-              <p class="large text-muted">{{$textos[0]->equipoEs}}</p>
+              <h3 class="large text-muted section-subheading">{{$textos[0]->equipoEs}}</h3>
             @endif
           </div>
         </div>
@@ -437,13 +437,23 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer  style="background-color:#212529; padding-top:6px; padding-bottom:4px">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
+        <div class="row align-items-center">
+
+          <div class="col-md-6">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <p style="color:white; margin-bottom:0px"><i class="fa fa-phone" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->telefono}}@endif</p>
+              </li>
+              &nbsp &nbsp
+              <li class="list-inline-item">
+                <p style="color:white; margin-bottom:0px"><i class="fa fa-map-marker" style="margin-right:6px"></i>@if(count($datos)>0){{$datos[0]->direccion}}@endif</p>
+              </li>
+            </ul>
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-6">
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
@@ -455,23 +465,9 @@
                   <i class="fa fa-facebook"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
             </ul>
           </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
     </footer>

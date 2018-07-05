@@ -6,7 +6,8 @@ Route::get('/', function () {
   $textos= \App\Textos::all();
   $empleados= \App\Empleado::all();
   $experiencias= \App\Experiencia::all();
-    return view('home', compact('servicios','textos','empleados','experiencias'));
+  $datos= \App\datosContacto::all();
+    return view('home', compact('servicios','textos','empleados','experiencias','datos'));
 });
 
 Route::get('en', 'LanguageController@english');

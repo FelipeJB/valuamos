@@ -33,6 +33,35 @@ class FooterController extends Controller
   }
 
   /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function createVinculo()
+  {
+    try {
+      if (Auth::check()){
+          if (Input::get('NombreAddVinculo')!=null && Input::get('NombreAddVinculo')!="" && Input::get('VinculoAddVinculo')!=null && Input::get('VinculoAddVinculo')!=""){
+                //agregar vínculo
+                $v = new vinculos();
+                $v->nombre = Input::get('NombreAddVinculo');
+                if (strpos(Input::get('VinculoAddVinculo'), 'http') === false) {
+                  $v->vinculo = 'http://' .Input::get('VinculoAddVinculo');
+                }else{
+                  $v->vinculo = Input::get('VinculoAddVinculo');
+                }
+                $v->icono = Input::get('IconoAddVinculo');
+                $v->save();
+                return Redirect::to('/admin/footer')->with("SuccessVinculo", "Se agreg&oacute el vínculo");
+          }
+          return Redirect::to('/admin/footer')->with("ErrorVinculo", "Por favor ingrese todos los campos");
+      }
+    } catch (Exception $e) {
+      return Redirect::to('/admin/footer')->with("ErrorVinculo", "Error agregando el vínculo");
+    }
+  }
+
+  /**
    * Remove the specified resource from storage.
    *
    * @return \Illuminate\Http\Response

@@ -457,7 +457,7 @@
               <ul class="list-inline social-buttons">
                 @foreach($vinculos as $v)
                 <li class="list-inline-item">
-                  <a href="{{$v->vinculo}}" target="_blank" data-toggle="tooltip" title="{{$v->nombre}}">
+                  <a href="{{$v->vinculo}}" target="_blank" data-toggle="tooltip" title="{{$v->nombre}}" style="margin-top:4px">
                     <i class="fa {{$v->icono}}"></i>
                   </a>
                 </li>

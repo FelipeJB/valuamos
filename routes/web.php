@@ -113,6 +113,14 @@ Route::post('deleteMensaje', 'MessageController@delete');
 
 Route::post('responderMensaje', 'MessageController@answer');
 
+Route::post('addVinculo', 'FooterController@createVinculo');
+
+Route::post('editVinculo', 'FooterController@editVinculo');
+
+Route::post('deleteVinculo', 'FooterController@deleteVinculo');
+
+Route::post('editDatos', 'FooterController@editDatos');
+
 Route::get('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('logout', 'Auth\LoginController@logout');

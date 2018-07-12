@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('img/logos/favicon.png') }}" />
+
     <title>Valuamos</title>
 
     <!-- Bootstrap core CSS -->
@@ -30,7 +32,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="text-color:white">Valuamos</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ URL::asset('img/logos/logo_header.png') }}" WIDTH=190></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa fa-bars"></i>
         </button>
@@ -99,7 +101,7 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading text-uppercase">Valuamos</div>
+        <img src="{{ URL::asset('img/logos/logo_main.png') }}" class="img-fluid" ><br><br>
 
           @if(Request::session()->has('languaje'))
             <h4 class="section-subheading">{{$textos[0]->inicioEn}}</h4><br>

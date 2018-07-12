@@ -8,6 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('img/logos/favicon.png') }}" />
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -43,7 +45,7 @@
                         @guest
 
                         @else
-                            
+
                         @endguest
                     </ul>
                 </div>

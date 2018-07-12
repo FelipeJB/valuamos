@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('img/logos/favicon.png') }}" />
+
     <title>Administrar - @yield('titulo')</title>
 
     <!-- Bootstrap core CSS -->
